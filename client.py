@@ -16,6 +16,12 @@ class Client(object):
             msg = self.receive()
             print msg
 
+    def send(self, msg):
+        self.socket.send(msg)
+
+
+
+
 
 
 if __name__ == '__main__':
@@ -23,4 +29,6 @@ if __name__ == '__main__':
     port = 5004
 
     client = Client(host, port)
-    client.start_recv()
+    while True:
+        msg = str(raw_input())
+        client.send(msg)
